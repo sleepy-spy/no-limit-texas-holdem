@@ -232,7 +232,7 @@ class PokerGame:
                     .strip()
                 )
         elif type == "preflop check":
-            print(f"Actions: Check  Raise  Fold")
+            print("Actions: Check  Raise  Fold")
             action = (
                 input(
                     "Please input your desired action (check, raise, fold). Keep in mind the spelling, but it is case-insensitive: "
@@ -431,7 +431,11 @@ class PokerGame:
                                     f"Please input the amount you want to bet (Min: {min(last_raise_amount, player.money)}, Max: {player.money}): "
                                 )
                             )
-                            if last_raise_amount <= current_bet <= player.money:
+                            if (
+                                min(last_raise_amount, player.money)
+                                <= current_bet
+                                <= player.money
+                            ):
                                 break
                             else:
                                 print("Please input a valid bet amount")
